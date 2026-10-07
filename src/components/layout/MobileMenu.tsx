@@ -11,7 +11,7 @@ interface MobileMenuProps {
   open: boolean;
   onClose: () => void;
   /** Element to return focus to when the menu closes (the trigger button). */
-  returnFocusRef: React.RefObject<HTMLButtonElement>;
+  returnFocusRef: React.RefObject<HTMLButtonElement | null>;
 }
 
 export function MobileMenu({ open, onClose, returnFocusRef }: MobileMenuProps) {
