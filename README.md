@@ -13,7 +13,7 @@ Built to be extended into the full Home Page and Dashboard later.
 
 | Choice | Reason |
 | --- | --- |
-| **Next.js 14 (App Router)** | Server components by default, file-based metadata/OG, `next/image` + `next/font` for zero-CLS loading, first-class Vercel deploy. |
+| **Next.js 16 (App Router)** | Server components by default, file-based metadata/OG, `next/image` + `next/font` for zero-CLS loading, first-class Vercel deploy. |
 | **TypeScript (strict, `noUncheckedIndexedAccess`, no `any`)** | Explicit contracts for content and component props. |
 | **Tailwind CSS** | Design tokens declared once in `tailwind.config.ts`; utilities keep spacing/type/colour consistent with the design. |
 | **Framer Motion** | Small, purposeful scroll-in reveals; honours `prefers-reduced-motion` at the source, not just via CSS. |
