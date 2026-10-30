@@ -1,10 +1,8 @@
 /** Global site metadata. Content lives here, never inline in markup. */
 export const site = {
   name: "LeadFresh",
-  domain: "leadfresh.example.com",
-  url: "https://leadfresh.example.com",
-  tagline: "Find companies before they start buying.",
+  tagline: "A front-end concept for sales research.",
   description:
-    "LeadFresh reads company signals — hiring, team growth and related data — to surface your best-fit accounts, score them, and hand you the decision makers and leads that matter.",
-  ogImageAlt: "LeadFresh — B2B sales lead generation from company signals",
+    "A responsive front-end prototype for a B2B sales-intelligence concept. All account names and product data are illustrative; no live data, backend, or external integrations are connected.",
+  ogImageAlt: "LeadFresh front-end prototype for sales research",
 } as const;

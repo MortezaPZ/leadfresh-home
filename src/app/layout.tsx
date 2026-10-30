@@ -9,8 +9,12 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ? new URL(process.env.NEXT_PUBLIC_SITE_URL)
+  : undefined;
+
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  ...(siteUrl ? { metadataBase: siteUrl } : {}),
   title: {
     default: `${site.name} — ${site.tagline}`,
     template: `%s — ${site.name}`,
@@ -18,16 +22,16 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   keywords: [
-    "B2B lead generation",
-    "sales intelligence",
-    "company signals",
-    "intent data",
-    "decision makers",
+    "Responsive web prototype",
+    "Sales intelligence concept",
+    "Accessible navigation",
+    "Next.js",
+    "TypeScript",
   ],
   authors: [{ name: site.name }],
   openGraph: {
     type: "website",
-    url: site.url,
+    ...(siteUrl ? { url: siteUrl } : {}),
     siteName: site.name,
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
@@ -39,7 +43,7 @@ export const metadata: Metadata = {
     description: site.description,
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: "/" },
+  ...(siteUrl ? { alternates: { canonical: "/" } } : {}),
 };
 
 export const viewport: Viewport = {

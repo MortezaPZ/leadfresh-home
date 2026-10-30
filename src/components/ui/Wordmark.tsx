@@ -5,10 +5,7 @@ interface WordmarkProps {
   className?: string;
 }
 
-/**
- * Text-based logo placeholder. Replace the mark <svg> with the real LeadFresh
- * logo exported from Figma; keep the accessible name in sync with site.name.
- */
+/** Text-based mark for the LeadFresh prototype. Keep its accessible name in sync with site.name. */
 export function Wordmark({ className }: WordmarkProps) {
   return (
     <span className={cn("inline-flex items-center gap-2 text-ink", className)}>

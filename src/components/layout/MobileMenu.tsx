@@ -130,10 +130,10 @@ export function MobileMenu({ open, onClose, returnFocusRef }: MobileMenuProps) {
             </nav>
 
             <div className="mt-2 flex flex-col gap-3 border-t border-line pt-6">
-              <Button href={navCtaSecondary.href} variant="secondary" size="lg" className="w-full">
+              <Button href={navCtaSecondary.href} external={navCtaSecondary.external} variant="secondary" size="lg" className="w-full">
                 {navCtaSecondary.label}
               </Button>
-              <Button href={navCtaPrimary.href} variant="primary" size="lg" className="w-full">
+              <Button href={navCtaPrimary.href} external={navCtaPrimary.external} variant="primary" size="lg" className="w-full">
                 {navCtaPrimary.label}
               </Button>
             </div>

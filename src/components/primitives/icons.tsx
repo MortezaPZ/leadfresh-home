@@ -1,9 +1,6 @@
 import type { SVGProps } from "react";
 
-/**
- * Hand-built icon set (no icon library). 24x24 grid, 1.75 stroke, currentColor.
- * Swap these paths for the exact Figma icons when the assets are exported.
- */
+/** Inline SVG icons used by the prototype components. */
 type IconProps = SVGProps<SVGSVGElement>;
 
 function base(props: IconProps) {

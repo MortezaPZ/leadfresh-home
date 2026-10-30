@@ -11,19 +11,7 @@ export interface NavLink {
 export interface CtaLink {
   label: string;
   href: string;
-}
-
-export interface Stat {
-  value: string;
-  label: string;
-}
-
-export interface Logo {
-  name: string;
-  /** Path under /public. Replace with the real asset from Figma. */
-  src: string;
-  width: number;
-  height: number;
+  external?: boolean;
 }
 
 export interface Feature {

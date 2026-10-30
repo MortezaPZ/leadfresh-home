@@ -1,11 +1,13 @@
 import type { CtaLink, NavLink } from "@/types";
 
 export const navLinks: NavLink[] = [
-  { label: "Product", href: "#features" },
-  { label: "How it works", href: "#how-it-works" },
-  { label: "Customers", href: "#customers" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Overview", href: "#hero" },
+  { label: "Features", href: "#features" },
 ];
 
-export const navCtaSecondary: CtaLink = { label: "Log in", href: "#login" };
-export const navCtaPrimary: CtaLink = { label: "Book a demo", href: "#demo" };
+export const navCtaSecondary: CtaLink = { label: "Features", href: "#features" };
+export const navCtaPrimary: CtaLink = {
+  label: "View source",
+  href: "https://github.com/MortezaPZ/leadfresh-home",
+  external: true,
+};

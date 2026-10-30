@@ -29,11 +29,11 @@ export function Hero() {
         </Reveal>
         <Reveal index={3}>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-            <Button href={hero.primaryCta.href} size="lg">
+            <Button href={hero.primaryCta.href} external={hero.primaryCta.external} size="lg">
               {hero.primaryCta.label}
               <ArrowRightIcon className="h-5 w-5" />
             </Button>
-            <Button href={hero.secondaryCta.href} variant="secondary" size="lg">
+            <Button href={hero.secondaryCta.href} external={hero.secondaryCta.external} variant="secondary" size="lg">
               {hero.secondaryCta.label}
             </Button>
           </div>
@@ -47,7 +47,7 @@ export function Hero() {
 
       <Reveal index={5} className="mt-14 sm:mt-16 lg:mt-20">
         <div className="mx-auto max-w-content overflow-hidden rounded-xl border border-line bg-surface-subtle shadow-card">
-          {/* ASSET: replace with the real product screenshot exported from Figma. */}
+          {/* Concept illustration; no live product data is shown. */}
           <Image
             src={hero.media.src}
             alt={hero.media.alt}

@@ -1,13 +1,10 @@
-# LeadFresh — Home Page (first sections)
+# LeadFresh Marketing Site Prototype
 
-A standalone, deployable implementation of the first sections of the LeadFresh
-marketing home page: **Navbar + Hero**, **Social proof**, and **Features**.
-Built to be extended into the full Home Page and Dashboard later.
+A responsive front-end prototype for a marketing home page, built with Next.js 16, TypeScript, and Tailwind CSS. It includes navigation, a hero concept, and a feature section. It is not a production release and is not connected to a backend.
 
-> Design values in `tailwind.config.ts` are a coherent placeholder system.
-> When the Figma Dev Mode spec is provided, only the token values (colors,
-> type scale, spacing, radius, shadow) need to change — no component reads raw
-> hex/px from JSX.
+The dashboard artwork is illustrative. The prototype includes no customer names, logos, endorsements, or performance claims.
+
+Design tokens are centralised in tailwind.config.ts so the visual system can be aligned with an approved brand spec.
 
 ## Stack & why
 
@@ -23,30 +20,17 @@ Built to be extended into the full Home Page and Dashboard later.
 
 ```
 .
-├── public/
-│   ├── images/
-│   │   ├── hero-product-placeholder.svg      # ASSET: replace with Figma export
-│   │   └── logos/logo-*.svg                  # ASSET: replace with real logos
+├── public/images/hero-product-concept.svg
 ├── src/
-│   ├── app/
-│   │   ├── layout.tsx                        # <html>, fonts, metadata, OG, skip link
-│   │   ├── page.tsx                          # composes the three sections
-│   │   ├── globals.css                       # Tailwind layers + reduced-motion reset
-│   │   ├── opengraph-image.tsx               # generated 1200×630 OG/Twitter image
-│   │   ├── robots.ts / sitemap.ts            # SEO
-│   ├── components/
-│   │   ├── ui/            Container, Section, Button, Typography, Wordmark
-│   │   ├── layout/        Navbar, MobileMenu, Footer
-│   │   ├── sections/      Hero, SocialProof, Features
-│   │   ├── motion/        Reveal (scroll-in, reduced-motion aware)
-│   │   └── primitives/    icons.tsx (hand-built SVG icon set)
-│   ├── content/           site, navigation, hero, social-proof, features  ← all copy/data
-│   ├── lib/               utils.ts (cn)
-│   └── types/             shared TS types
-├── tailwind.config.ts     ← design tokens (single source of truth)
+│   ├── app/          routes, metadata, and generated Open Graph image
+│   ├── components/   accessible navigation, hero, features, and UI primitives
+│   ├── content/      prototype copy, navigation, hero, and features
+│   ├── lib/          shared utilities
+│   └── types/        shared TypeScript contracts
+└── tailwind.config.ts
 ```
 
-Content is fully separated from markup: every string, link, stat and feature
+Content is fully separated from markup: every string, link, and feature
 lives in `src/content/*`. Components receive typed data and never inline copy.
 
 ### One implementation note worth flagging
@@ -61,13 +45,12 @@ button. If you add a size to `theme.extend.fontSize`, add it to `FONT_SIZES` too
 ## Responsive strategy
 
 Breakpoints (Tailwind): `xs 375` · `sm 640` · `md 768` · `lg 1024` · `xl 1280` · `2xl 1536`.
-Verified from **320px to 1920px** — no horizontal overflow, no text breakage.
+Designed for viewport widths from **320px to 1920px**; recheck layout after integrating approved brand assets.
 
 - **Container**: fluid width with 20 → 24 → 32px gutters, content capped at 1200px; beyond that the page fills to 1920px via gutters only.
 - **Section**: vertical padding scales 64 → 96 → 120px at `md` / `lg`.
 - **Navbar**: below `lg`, links + CTAs collapse into a hamburger that opens a full-width overlay menu — focus is trapped, `Esc` closes, body scroll locks, focus returns to the trigger. At `lg`+ the full inline nav shows.
 - **Hero**: single centered column at every width; CTAs stack on mobile and sit inline from `sm`; the product image is `priority` and uses responsive `sizes` to avoid layout shift.
-- **Social proof**: logo grid is 2 cols (mobile) → 3 (`sm`) → 6 (`lg`); stats stack on mobile, 3-up from `sm`.
 - **Features**: card grid 1 col → 2 (`sm`) → 3 (`lg`).
 
 ## Accessibility
@@ -82,24 +65,14 @@ trigger, `role="dialog"` + `aria-modal`, focus moved to the first link on open,
 a Tab focus trap, `Esc` to close, body scroll lock, and focus returned to the
 trigger on close.
 
-**Measured in-browser** (values read from `getComputedStyle`, not estimated):
-
-| Check | Result |
-| --- | --- |
-| Body copy on white | 6.00:1 ✓ AA |
-| Secondary text on `surface-subtle` | 5.04:1 ✓ AA |
-| Eyebrow (`brand-700`) on white | 6.61:1 ✓ AA |
-| Primary CTA (white on `brand-600`) | 4.77:1 ✓ AA |
-| Secondary CTA | 18.72:1 ✓ AAA |
-| Horizontal overflow at 320px / 1920px | none (0 overflowing elements) |
-| Focus on page load | `body` — nothing steals focus |
+The implementation includes visible focus styles, keyboard handling in the mobile menu, and reduced-motion support. Run a contrast and keyboard audit before using the prototype in production.
 
 ## Performance & SEO
 
-`next/image` (sized, `priority` hero), `next/font` (Inter, `display: swap`,
-self-hosted), no CLS, generated OG/Twitter image, `robots` + `sitemap`,
-canonical URL, Open Graph / Twitter metadata. Target: Lighthouse ≥ 95 on all
-four categories.
+The hero uses `next/image`, Inter is loaded with `next/font`, and the project
+generates Open Graph and Twitter images. Canonical URLs and the sitemap are
+emitted only when `NEXT_PUBLIC_SITE_URL` is set to the actual deployed origin.
+No Lighthouse score is claimed for this prototype.
 
 ## Run locally
 
@@ -116,12 +89,12 @@ npm run lint                     # eslint
 npm run typecheck                # tsc --noEmit (strict, no `any`)
 ```
 
-All three pass clean on the committed tree.
+The repository provides separate build, lint, and strict TypeScript checks.
 
 ## Deploy to Vercel
 
 1. Push this repo to GitHub/GitLab/Bitbucket.
-2. In Vercel: **New Project → Import** the repo. Framework preset **Next.js** is auto-detected — no env vars needed.
+2. In Vercel: **New Project → Import** the repo. Framework preset **Next.js** is auto-detected.
 3. Deploy. Every push to the default branch ships to production; PRs get preview URLs.
 
 Or from the CLI:
@@ -131,29 +104,12 @@ npm i -g vercel
 vercel
 ```
 
-Set `site.url` in `src/content/site.ts` to the production domain so canonical /
-OG URLs are absolute.
+After a real deployment domain is assigned, set `NEXT_PUBLIC_SITE_URL` to that
+origin so canonical, Open Graph, robots, and sitemap URLs use the deployed site.
 
-## Where the API connection lands next
+## Prototype boundaries
 
-The backend already exists; this stage is static marketing UI. Integration points:
+This repository is a front-end concept. It has no backend, live company data, authentication, CRM connection, or working demo-booking flow. Copy and account data are illustrative and must be replaced with approved, verified information before deployment.
+## Prototype assets
 
-- **Content layer** (`src/content/*`) is the seam. Swap the static exports for
-  data fetched in server components (e.g. `async function Features()` calling
-  `lib/api`), keeping the same typed shapes from `src/types`.
-- Add a typed `src/lib/api.ts` client (fetch wrapper + zod/DTO parsing) and an
-  `.env` (`NEXT_PUBLIC_API_BASE_URL`, server-only keys).
-- Form CTAs ("Book a demo", "Log in") become real routes / server actions
-  hitting the backend; the `Button` primitive already supports `href` and
-  `onClick`.
-- Dashboard becomes an authenticated route group (`src/app/(app)/`) sharing the
-  same tokens and primitives.
-
-## Assets to replace (from Figma)
-
-| Placeholder | Location |
-| --- | --- |
-| Hero product screenshot | `public/images/hero-product-placeholder.svg` |
-| Customer logos (×6) | `public/images/logos/logo-*.svg` |
-| Brand logo mark | inline SVG in `src/components/ui/Wordmark.tsx` |
-| Feature icons | `src/components/primitives/icons.tsx` |
+The dashboard illustration is a concept image and does not represent a live product or real customer data. The repository contains no customer logos or customer endorsements. The brand mark and feature icons are drawn locally in source.

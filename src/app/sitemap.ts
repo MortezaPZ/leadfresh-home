@@ -1,10 +1,12 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/content/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  if (!siteUrl) return [];
+
   return [
     {
-      url: site.url,
+      url: new URL("/", siteUrl).toString(),
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,

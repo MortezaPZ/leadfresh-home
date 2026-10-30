@@ -52,10 +52,10 @@ export function Navbar() {
           </nav>
 
           <div className="hidden items-center gap-2 lg:flex">
-            <Button href={navCtaSecondary.href} variant="ghost" size="md">
+            <Button href={navCtaSecondary.href} external={navCtaSecondary.external} variant="ghost" size="md">
               {navCtaSecondary.label}
             </Button>
-            <Button href={navCtaPrimary.href} variant="primary" size="md">
+            <Button href={navCtaPrimary.href} external={navCtaPrimary.external} variant="primary" size="md">
               {navCtaPrimary.label}
             </Button>
           </div>

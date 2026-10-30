@@ -9,52 +9,52 @@ import {
 import type { Feature } from "@/types";
 
 export const featuresSection = {
-  eyebrow: "Why LeadFresh",
-  heading: "Signal in, pipeline out",
+  eyebrow: "Prototype scope",
+  heading: "A clear workflow for account research",
   description:
-    "Every step from raw company data to a warm introduction, in one workflow your reps actually follow.",
+    "The interface explores how a sales-intelligence product could organise company research. Product behavior and all data shown here are illustrative.",
   items: [
     {
       id: "signals",
       icon: SignalIcon,
-      title: "Live company signals",
+      title: "Company signals",
       description:
-        "Track hiring bursts, team growth, tech changes and funding across millions of companies, refreshed daily.",
+        "A dashboard concept for reviewing hiring, team growth, and technology activity. No live signal feed is connected.",
     },
     {
       id: "scoring",
       icon: TargetIcon,
-      title: "Fit & intent scoring",
+      title: "Account prioritization",
       description:
-        "Blend your ICP with real-time signals to rank accounts, so reps always work the highest-probability list first.",
+        "An interface concept for comparing companies with a target profile. Any displayed score is sample content.",
     },
     {
       id: "contacts",
       icon: UsersIcon,
-      title: "Decision makers on tap",
+      title: "Decision-maker context",
       description:
-        "Get verified contacts for the people who sign off — with role, seniority and the best channel to reach them.",
+        "A layout for role and seniority details. This prototype does not connect to a contact database.",
     },
     {
       id: "speed",
       icon: BoltIcon,
-      title: "Act while it's hot",
+      title: "Next-step planning",
       description:
-        "Alerts push new matches to Slack and your CRM within hours, not at the end of a quarterly data refresh.",
+        "A concept for preparing a prioritized outreach queue. No outreach is sent from this site.",
     },
     {
       id: "integrations",
       icon: PlugIcon,
-      title: "Fits your stack",
+      title: "Integration surfaces",
       description:
-        "Two-way sync with Salesforce, HubSpot and your sequencer keeps records clean without manual exports.",
+        "Visual concepts for CRM and messaging integrations. No external systems are connected.",
     },
     {
       id: "compliance",
       icon: ShieldCheckIcon,
-      title: "Compliant by default",
+      title: "Data boundaries",
       description:
-        "GDPR- and CCPA-ready data handling, region controls and audit logs your security team can sign off on.",
+        "All displayed data is illustrative. Authentication, compliance, and production data handling are outside this front-end prototype.",
     },
   ] satisfies Feature[],
 } as const;

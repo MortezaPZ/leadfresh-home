@@ -1,22 +1,6 @@
 import type { Config } from "tailwindcss";
 
-/**
- * DESIGN TOKENS
- * -----------------------------------------------------------------------------
- * These values are the single source of truth for the UI. They are currently a
- * coherent placeholder system for a B2B SaaS product. When the Figma Dev Mode
- * spec is available, replace ONLY the values below (hex, font sizes/weights,
- * spacing, radius, shadow). No component reads raw hex or px values from JSX.
- *
- * Figma mapping checklist (fill in when spec arrives):
- *   - colors.brand.*          -> Figma "Primary / Green" ramp
- *   - colors.ink / muted      -> Figma text styles
- *   - fontSize.*              -> Figma text styles (size / line-height / tracking)
- *   - spacing.section*         -> Figma section vertical padding
- *   - borderRadius.*           -> Figma corner radius tokens
- *   - boxShadow.*              -> Figma effect styles
- * -----------------------------------------------------------------------------
- */
+/** Centralized visual tokens for the LeadFresh prototype. */
 const config: Config = {
   content: ["./src/**/*.{ts,tsx,mdx}"],
   theme: {

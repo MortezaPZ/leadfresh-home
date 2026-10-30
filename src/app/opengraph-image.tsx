@@ -31,7 +31,7 @@ export default function OpengraphImage() {
             {site.tagline}
           </div>
           <div style={{ fontSize: 30, color: "#D3F5E1", maxWidth: 900 }}>
-            B2B sales lead generation from real company signals.
+            Front-end prototype · illustrative product data
           </div>
         </div>
       </div>

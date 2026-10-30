@@ -3,7 +3,7 @@ import { Wordmark } from "@/components/ui/Wordmark";
 import { site } from "@/content/site";
 import { navLinks } from "@/content/navigation";
 
-/** Minimal footer so the live page reads as finished. Full footer is out of scope for this stage. */
+/** Compact footer with the prototype navigation and brand. */
 export function Footer() {
   return (
     <footer className="border-t border-line bg-surface-subtle py-10">
