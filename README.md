@@ -113,3 +113,8 @@ This repository is a front-end concept. It has no backend, live company data, au
 ## Prototype assets
 
 The dashboard illustration is a concept image and does not represent a live product or real customer data. The repository contains no customer logos or customer endorsements. The brand mark and feature icons are drawn locally in source.
+
+## Folder guides
+
+- [`public/`](<public/README.md>)
+- [`src/`](<src/README.md>)
